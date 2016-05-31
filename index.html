@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
+    <title>Mikes First JavaScript</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -35,7 +35,19 @@
         </form>
 
         <div class="details">
+          <dl>
+            <dt>First Name</dt>
+            <dd id="firstName"></dd>
 
+            <dt>Hair Color</dt>
+            <dd class="myColor" id="hairColor"></dd>
+
+            <dt>Age</dt>
+            <dd id="age"></dd>
+
+            <dt>Birthplace</dt>
+            <dd id="birthplace"></dd>
+          </dl>
         </div>
       </div>
     </section>
@@ -44,8 +56,17 @@
       var myForm = document.querySelector('form');
       myForm.onsubmit = function(ev) {
         ev.preventDefault();
-        var details = document.querySelector('div.details');
-        details.innerHTML += '<p>' + this.firstName.value + '</p>';
+        var firstName = document.querySelector('#firstName');
+        var hairColor = document.querySelector('#hairColor');
+        var age = document.querySelector('#age');
+        var birthplace = document.querySelector('#birthplace');
+
+        firstName.innerText = this.firstName.value;
+        hairColor.style.height = "20px";
+        hairColor.style.width = "20px";
+        hairColor.style.backgroundColor = this.hairColor.value;
+        age.innerText = this.age.value;
+        birthplace.innerText = this.birthplace.value;
       };
     </script>
 
