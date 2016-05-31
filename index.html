@@ -32,11 +32,16 @@
       </p>
     </form>
 
+    <div class="details">
+
+    </div>
+
     <script type="text/javascript">
       var myForm = document.querySelector('form');
       myForm.onsubmit = function(ev) {
         ev.preventDefault();
-        console.log(this.firstName.value);
+        var details = document.querySelector('div.details');
+        details.innerHTML += '<p>' + this.firstName.value + '</p>';
       };
     </script>
 
