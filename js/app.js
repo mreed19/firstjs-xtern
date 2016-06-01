@@ -1,40 +1,44 @@
 $(document).foundation();
 
-(function() {
+var app = {
 
-  var buildColorDiv = function(color) {
+  init: function() {
+    var myForm = document.querySelector('form');
+    myForm.onsubmit = this.addValuesToDetails;
+  },
+
+  buildColorDiv: function(color) {
     return '<div style="height: 100px; width: 100px; background-color: ' + color + '"></div>';
-  };
+  },
 
-  var buildList = function(listValues) {
+  buildList: function(listValues) {
     var dl = document.createElement('dl');
     dl.style.border = '1px solid red';
-    dl.innerHTML= buildListItem('First Name', listValues.firstName) +
-      buildListItem('Hair Color', listValues.hairColor) +
-      buildListItem('Age', listValues.age) +
-      buildListItem('Birthplace', listValues.birthplace);
+    dl.innerHTML= this.buildListItem('First Name', listValues.firstName) +
+      this.buildListItem('Hair Color', listValues.hairColor) +
+      this.buildListItem('Age', listValues.age) +
+      this.buildListItem('Birthplace', listValues.birthplace);
 
     return dl;
-  };
+  },
 
-  var buildListItem = function(term, definition) {
+  buildListItem: function(term, definition) {
     return '<li><dt>' + term + '</dt><dd>' + definition + '</dd></li>';
-  };
+  },
 
-  var addValuesToDetails = function(ev) {
+  addValuesToDetails: function(ev) {
     ev.preventDefault();
     var details = document.querySelector('.details');
 
     var listValues = {
       firstName: this.firstName.value,
-      hairColor: buildColorDiv(this.hairColor.value),
+      hairColor: app.buildColorDiv(this.hairColor.value),
       age: this.age.value,
       birthplace: this.birthplace.value
     };
 
-    details.appendChild(buildList(listValues));
-  };
+    details.appendChild(app.buildList(listValues));
+  }
+};
 
-  var myForm = document.querySelector('form');
-  myForm.onsubmit = addValuesToDetails;
-})();
+app.init();
