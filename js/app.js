@@ -5,17 +5,16 @@ var buildColorDiv = function(color) {
 };
 
 var buildList = function(listValues) {
-  return ' \
-    <dl> \
-        <dt>First Name</dt> \
-        <dd>' + listValues.firstName + '</dd> \
-        <dt>Hair Color</dt> \
-        <dd>' + listValues.hairColor + '</dd> \
-        <dt>Age</dt> \
-        <dd>' + listValues.age + '</dd> \
-        <dt>Birthplace</dt> \
-        <dd>' + listValues.birthplace + '</dd> \
-      </dl>';
+  return '<dl>' +
+    buildListItem('First Name', listValues.firstName) +
+    buildListItem('Hair Color', listValues.hairColor) +
+    buildListItem('Age', listValues.age) +
+    buildListItem('Birthplace', listValues.birthplace) +
+    '</dl>';
+};
+
+var buildListItem = function(term, definition) {
+  return '<li><dt>' + term + '</dt><dd>' + definition + '</dd></li>';
 };
 
 var addValuesToDetails = function(ev) {
