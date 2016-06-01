@@ -33,42 +33,11 @@
             <button class="button" type="submit">Go</button>
           </p>
         </form>
+      </div>
 
-        <div class="details">
-          <dl>
-            <dt>First Name</dt>
-            <dd id="firstName"></dd>
-
-            <dt>Hair Color</dt>
-            <dd class="myColor" id="hairColor"></dd>
-
-            <dt>Age</dt>
-            <dd id="age"></dd>
-
-            <dt>Birthplace</dt>
-            <dd id="birthplace"></dd>
-          </dl>
-        </div>
+      <div class="details">
       </div>
     </section>
-
-    <script type="text/javascript">
-      var myForm = document.querySelector('form');
-      myForm.onsubmit = function(ev) {
-        ev.preventDefault();
-        var firstName = document.querySelector('#firstName');
-        var hairColor = document.querySelector('#hairColor');
-        var age = document.querySelector('#age');
-        var birthplace = document.querySelector('#birthplace');
-
-        firstName.innerText = this.firstName.value;
-        hairColor.style.height = "20px";
-        hairColor.style.width = "20px";
-        hairColor.style.backgroundColor = this.hairColor.value;
-        age.innerText = this.age.value;
-        birthplace.innerText = this.birthplace.value;
-      };
-    </script>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
